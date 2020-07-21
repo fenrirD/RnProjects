@@ -8,7 +8,6 @@ import ImagePicker from 'react-native-image-crop-picker';
 export default class ExampleApp extends PureComponent {
   constructor() {
     super();
-
   }
 
   render() {
@@ -115,8 +114,8 @@ export default class ExampleApp extends PureComponent {
 
         ImagePicker.openCropper({
           path:data.uri,
-          // width: 300,
-          // height: 400,
+          width: 600,
+          height: 800,
           cropping: true,
           includeBase64: true
         }).then( (image) => {
@@ -138,7 +137,7 @@ export default class ExampleApp extends PureComponent {
             msgData.isSuccessfull = true;
             msgData.args = [image.data];
             this.props.webView.postMessage(JSON.stringify(msgData))
-            alert(response.data)
+
           }).catch(error=>{
             console.log(error)
           })
